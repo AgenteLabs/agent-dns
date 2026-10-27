@@ -90,13 +90,13 @@ Sibling specifications, referenced by name and not redefined here:
 
 `agent-dns/1` is a gateway layer of Web 4 — the agentic internet as a stack of
 open protocols. The human map of the whole stack is
-[web4](https://github.com/FlashyLabs/web4); its machine twin is
-[stack.json](https://github.com/FlashyLabs/stack.json), served at
+[web4](https://github.com/AgenteLabs/web4); its machine twin is
+[stack.json](https://github.com/AgenteLabs/stack.json), served at
 `/.well-known/stack.json`. This repository serves its own institutional front
 door — the same config-driven, dependency-free door every protocol repository in
 the estate serves — generated into `site/` by `node scripts/build-site.mjs` from
 `site.config.json` and its vendored inputs. It is committed here and, once
-deployed, is served at `https://flashylabs.github.io/agent-dns/` (committed as
+deployed, is served at `https://agentelabs.github.io/agent-dns/` (committed as
 of 2026-09-29, not yet fetched).
 
 ## Status

@@ -1,4 +1,4 @@
-// The generator itself is vendored from FlashyLabs/web4, byte-identical, so the
+// The generator itself is vendored from AgenteLabs/web4, byte-identical, so the
 // institutional front door is one door and not a fork. These files carry no
 // per-repository content — everything property-specific lives in
 // site.config.json — so each must match its web4 source exactly. Compared
