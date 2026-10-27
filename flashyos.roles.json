@@ -9,7 +9,7 @@
   "repositories": [
     {
       "name": "agent-dns",
-      "url": "github.com/FlashyLabs/agent-dns",
+      "url": "github.com/AgenteLabs/agent-dns",
       "default": true,
       "holds": [
         "spec",

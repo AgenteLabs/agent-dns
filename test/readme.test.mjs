@@ -2,7 +2,7 @@
 // front door: a level-1 heading first, the bolt mark beside it, a
 // "Where it sits in the stack" section that links the Web 4 hub and its machine
 // twin, a draft status line, and the estate licence line last. Every
-// github.com/FlashyLabs repo it links is in one allowlist here — a typo fails
+// github.com/AgenteLabs repo it links is in one allowlist here — a typo fails
 // the suite. Modelled on web4's readme.test.mjs, with the allowlist adapted to
 // this repository. node: builtins only, no install.
 import { test } from 'node:test';
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const readme = readFileSync(join(ROOT, 'README.md'), 'utf8');
 
-// Every github.com/FlashyLabs/<name> the README may link. Add here first.
+// Every github.com/AgenteLabs/<name> the README may link. Add here first.
 const ALLOW = ['web4', 'stack.json', 'agent-dns'];
 const LICENCE_LINE =
   'Licensed under Apache-2.0 (holder Flashy Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.';
@@ -33,12 +33,12 @@ test('a "Where it sits in the stack" section links the hub and its twin', () => 
   const at = readme.indexOf('\n## Where it sits in the stack\n');
   assert.ok(at !== -1, 'missing the "Where it sits in the stack" section');
   const section = readme.slice(at);
-  assert.match(section, /github\.com\/FlashyLabs\/web4/, 'the section must link the Web 4 hub');
-  assert.match(section, /github\.com\/FlashyLabs\/stack\.json/, 'the section must link the stack.json twin');
+  assert.match(section, /github\.com\/AgenteLabs\/web4/, 'the section must link the Web 4 hub');
+  assert.match(section, /github\.com\/AgenteLabs\/stack\.json/, 'the section must link the stack.json twin');
 });
 
 test('every FlashyLabs repo link is in the allowlist', () => {
-  const linked = [...readme.matchAll(/github\.com\/FlashyLabs\/([^\s)\/#"'`]+)/g)].map((m) => m[1]);
+  const linked = [...readme.matchAll(/github\.com\/AgenteLabs\/([^\s)\/#"'`]+)/g)].map((m) => m[1]);
   assert.ok(linked.length > 0, 'the README links no FlashyLabs repository');
   const unknown = linked.filter((r) => !ALLOW.includes(r));
   assert.deepEqual(unknown, [], `README links repos not in the allowlist: ${unknown.join(', ')}`);

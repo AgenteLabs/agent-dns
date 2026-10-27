@@ -105,7 +105,7 @@ test('every page is in the sitemap and in llms.txt', () => {
   const sitemap = read(join(SITE, 'sitemap.xml'));
   const llms = read(join(SITE, 'llms.txt'));
   const cfgForBase = JSON.parse(read(join(ROOT, 'site.config.json')));
-  const base = cfgForBase.domain ? `https://${cfgForBase.domain}/` : `https://flashylabs.github.io/${cfgForBase.property}/`;
+  const base = cfgForBase.domain ? `https://${cfgForBase.domain}/` : `https://agentelabs.github.io/${cfgForBase.property}/`;
   for (const p of pages) {
     const rel = relPosix(SITE, p).replace(/index\.html$/, '').replace(/\/$/, '');
     const url = base + (rel ? `${rel}/` : '');
