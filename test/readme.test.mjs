@@ -33,8 +33,16 @@ test('a "Where it sits in the stack" section links the hub and its twin', () => 
   const at = readme.indexOf('\n## Where it sits in the stack\n');
   assert.ok(at !== -1, 'missing the "Where it sits in the stack" section');
   const section = readme.slice(at);
-  assert.match(section, /github\.com\/AgenteLabs\/web4/, 'the section must link the Web 4 hub');
-  assert.match(section, /github\.com\/AgenteLabs\/stack\.json/, 'the section must link the stack.json twin');
+  // Parsed, not grepped: a substring regex over a URL is unanchored (a host that
+  // merely contains github.com would match), so each link is read as a URL and
+  // its hostname and pathname compared whole.
+  const linksTo = (owner, repo) =>
+    [...section.matchAll(/\]\((https?:\/\/[^\s)]+)\)/g)].some((m) => {
+      const u = new URL(m[1]);
+      return u.hostname === 'github.com' && u.pathname.replace(/\/$/, '') === `/${owner}/${repo}`;
+    });
+  assert.ok(linksTo('AgenteLabs', 'web4'), 'the section must link the Web 4 hub');
+  assert.ok(linksTo('AgenteLabs', 'stack.json'), 'the section must link the stack.json twin');
 });
 
 test('every FlashyLabs repo link is in the allowlist', () => {
