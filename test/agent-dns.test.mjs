@@ -533,7 +533,7 @@ describe('repository', () => {
   test('README ends on the estate licence line and never claims adoption', () => {
     const readme = readFileSync(join(ROOT, 'README.md'), 'utf8');
     const last = readme.trimEnd().split('\n').pop();
-    assert.equal(last, 'Licensed under Apache-2.0 (holder Flashy Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.');
+    assert.equal(last, 'Licensed under Apache-2.0 (holder Agente Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.');
     assert.match(readme, /Status: draft/);
     assert.doesNotMatch(readme, /\b(adopted by|used by|trusted by)\b/i);
   });
@@ -543,7 +543,7 @@ describe('repository', () => {
     assert.ok(existsSync(licensePath), 'LICENSE is missing — the estate register names this repository Apache-2.0');
     const licence = readFileSync(licensePath, 'utf8');
     assert.match(licence, /Apache License/, 'LICENSE must contain "Apache License"');
-    assert.match(licence, /Copyright 2026 Flashy Labs/, 'LICENSE must name "Copyright 2026 Flashy Labs"');
+    assert.match(licence, /Copyright 2026 Agente Labs/, 'LICENSE must name "Copyright 2026 Agente Labs"');
   });
 
   test('SPEC is a draft of agent-dns/1 and names the four findings', () => {

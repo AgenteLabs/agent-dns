@@ -105,4 +105,4 @@ Status: draft. The contract is `agent-dns/1`. Nothing here is deployed, adopted 
 
 **The v1 grammar and reason codes are frozen.** The record grammar (§2.2), the four findings (§4) and the reason codes (§5) of `agent-dns/1` will not change; a change to any of them is `agent-dns/2`, never an edit to v1. This is what lets a consumer vendor the resolver and the vectors and trust them. What remains draft is the surrounding prose, not the wire contract.
 
-Licensed under Apache-2.0 (holder Flashy Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.
+Licensed under Apache-2.0 (holder Agente Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.
