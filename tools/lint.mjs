@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = new Set(['.git', 'node_modules']);
 const LICENCE_LINE =
-  'Licensed under Apache-2.0 (holder Flashy Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.';
+  'Licensed under Apache-2.0 (holder Agente Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.';
 
 const failures = [];
 const fail = (msg) => failures.push(msg);
@@ -62,7 +62,7 @@ for (const field of ['dependencies', 'devDependencies', 'peerDependencies', 'opt
 }
 if (pkg.type !== 'module') fail('package.json: "type" must be "module"');
 
-// 5. The licence is Apache-2.0, holder Flashy Labs, per the estate register in
+// 5. The licence is Apache-2.0, holder Agente Labs, per the estate register in
 //    flashyos. A LICENSE file carries the full text; the README's last line
 //    names the register as the authority.
 const licensePath = join(ROOT, 'LICENSE');
@@ -71,7 +71,7 @@ if (!existsSync(licensePath)) {
 } else {
   const licence = readFileSync(licensePath, 'utf8');
   if (!licence.includes('Apache License')) fail('LICENSE: must contain "Apache License"');
-  if (!licence.includes('Copyright 2026 Flashy Labs')) fail('LICENSE: must name "Copyright 2026 Flashy Labs"');
+  if (!licence.includes('Copyright 2026 Agente Labs')) fail('LICENSE: must name "Copyright 2026 Agente Labs"');
 }
 const readme = readFileSync(join(ROOT, 'README.md'), 'utf8').trimEnd().split('\n');
 if (readme[readme.length - 1] !== LICENCE_LINE) fail(`README.md: last line must be exactly: ${LICENCE_LINE}`);
